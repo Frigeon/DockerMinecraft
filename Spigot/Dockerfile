@@ -11,7 +11,7 @@ ARG VERSION=latest
 # ------------------------------
 # Compile Spigot with BuildTools
 # ------------------------------
-RUN apk add --update --no-cache git wget \
+RUN apk add --update --no-cache git wget nano \
  && cd /tmp \
  && wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar \
  && java -jar BuildTools.jar --rev $VERSION \
