@@ -11,7 +11,7 @@ ARG VERSION=latest
 # ------------------------------
 # Compile Spigot with BuildTools
 # ------------------------------
-RUN apk add --update --no-cache git wget nano \
+RUN apk add --update --no-cache git wget \
  && cd /tmp \
  && wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar \
  && java -jar BuildTools.jar --rev $VERSION \
@@ -57,7 +57,7 @@ COPY --from=starter /tmp/*.class /opt/start/
 # Add user minecraft
 # ------------------
 RUN mkdir -p /mnt/minecraft \ 
- && apk add --no-cache openjdk8-jre-base nss \
+ && apk add --no-cache openjdk8-jre-base nss nano \
  && adduser -D minecraft -h /opt \
  && chown -R minecraft /mnt/minecraft /opt \
  && chmod -R 777 /mnt/minecraft /opt
