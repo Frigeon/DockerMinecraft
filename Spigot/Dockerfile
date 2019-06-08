@@ -71,11 +71,7 @@ EXPOSE 25565:25565/tcp 25565:25565/udp
 # Define volume
 # -------------
 VOLUME ["/mnt/minecraft"]
-
-# ----------------
-# Set startup user
-# ----------------
-USER minecraft
+WORKDIR /mnt/minecraft
 
 # ---------------------
 # Start the Start.class
