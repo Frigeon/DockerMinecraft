@@ -6,7 +6,7 @@ FROM openjdk:8-jdk-alpine as buildspigot
 # --------------
 # Define version
 # --------------
-ARG VERSION=1.14.2
+ARG VERSION=1.14.3
 
 # ------------------------------
 # Compile Spigot with BuildTools
