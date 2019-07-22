@@ -1,7 +1,7 @@
 ####################
 # Build Spigot.jar #
 ####################
-FROM openjdk:8-jdk-alpine as buildspigot
+FROM openjdk:8-jdk-alpine as buildspigot 
 
 # --------------
 # Define version
