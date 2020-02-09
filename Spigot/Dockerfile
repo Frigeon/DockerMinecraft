@@ -72,7 +72,7 @@ EXPOSE 25565:25565/tcp 25565:25565/udp
 VOLUME ["/mnt/minecraft"]
 WORKDIR /mnt/minecraft
 
-RUN (crontab -l ; echo "0 0 * * * tar -czf /mnt/minecraft/
+RUN (crontab -l ; echo "0 0 * * * tar -czf /mnt/minecraft/")
 
 # ---------------------
 # Start the Start.class
