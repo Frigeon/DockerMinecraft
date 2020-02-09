@@ -5,7 +5,7 @@ FROM openjdk:8-jdk-alpine as buildspigot
 # --------------
 # Define version
 # --------------
-ARG VERSION=1.14.4
+ARG VERSION=1.15.2
 
 # ------------------------------
 # Compile Spigot with BuildTools
@@ -71,6 +71,8 @@ EXPOSE 25565:25565/tcp 25565:25565/udp
 # -------------
 VOLUME ["/mnt/minecraft"]
 WORKDIR /mnt/minecraft
+
+RUN (crontab -l ; echo "0 0 * * * tar -czf /mnt/minecraft/
 
 # ---------------------
 # Start the Start.class
