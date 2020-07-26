@@ -42,9 +42,10 @@ LABEL maintainer "docker@marcermarc.de"
 #  https://aquifermc.org/threads/optimizing-paper-remove-lag-spikes-fix-tps-improve-performance.101/#post-822
 # Set the classpath can start the Start.class
 # -----------------------------------------------------------------------------------------------------------
+COPY entrypoint.sh /
 ENV WORKDIR="/mnt/minecraft" \
-  COMMAND="java -Xmx4G -Xms1G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:InitiatingHeapOccupancyPercent=10 -XX:G1MixedGCLiveThresholdPercent=50 -XX:+AggressiveOpts -XX:+AlwaysPreTouch -XX:+UseLargePagesInMetaspace -d64 -Dcom.mojang.eula.agree=true -Dfile.encoding=UTF-8 -jar /opt/minecraft/spigot.jar nogui" \
-  CLASSPATH=/opt/start
+COMMAND="/entrypoint.sh" \
+CLASSPATH=/opt/start
 
 # --------------------------------
 # Copy files from the build images
@@ -73,6 +74,9 @@ VOLUME ["/mnt/minecraft"]
 WORKDIR /mnt/minecraft
 
 RUN (crontab -l ; echo "0 0 * * * tar -czf /mnt/minecraft/")
+
+ENV JAVA_XMX = 4G
+ENV JAVA_XMS = 1G
 
 # ---------------------
 # Start the Start.class
