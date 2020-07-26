@@ -6,7 +6,7 @@ FROM openjdk:8-jdk-alpine as installforge
 # --------------
 # Define version
 # --------------
-ARG VERSION=latest
+ARG VERSION=1.16.1
 
 # ---------------------------------
 # Download and install forge server
@@ -47,7 +47,7 @@ LABEL maintainer "docker@marcermarc.de"
 # Set the classpath can start the Start.class
 # -----------------------------------------------------------------------------------------------------------
 ENV WORKDIR="/mnt/minecraft" \
-  COMMAND="java -Xmx2G -Xms2G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:InitiatingHeapOccupancyPercent=10 -XX:G1MixedGCLiveThresholdPercent=50 -XX:+AggressiveOpts -XX:+AlwaysPreTouch -XX:+UseLargePagesInMetaspace -d64 -Dfile.encoding=UTF-8 -jar /opt/minecraft/forge.jar nogui" \
+  COMMAND="java -Xmx4G -Xms2G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:InitiatingHeapOccupancyPercent=10 -XX:G1MixedGCLiveThresholdPercent=50 -XX:+AggressiveOpts -XX:+AlwaysPreTouch -XX:+UseLargePagesInMetaspace -d64 -Dfile.encoding=UTF-8 -jar /opt/minecraft/forge.jar nogui" \
   CLASSPATH=/opt/start
 
 # --------------------------------
